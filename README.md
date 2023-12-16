@@ -1,4 +1,4 @@
-# chat-next-web
+# Chat Next Web
 
 Build comprehensive chat frontend web page powered by Streamlit 🚀
 
