@@ -1,0 +1,24 @@
+[[pages]]
+path = "main.py"
+name = "Home"
+icon = "🏠"
+
+[[pages]]
+path = "pages/chat.py"
+name = "Chat"
+icon = "💬"
+
+[[pages]]
+path = "pages/prompt.py"
+name = "Prompt"
+icon = "🌟"
+
+[[pages]]
+path = "pages/information.py"
+name = "Information"
+icon = "📜"
+
+[[pages]]
+path = "pages/visualization.py"
+name = "Visualization"
+icon = "📊"
