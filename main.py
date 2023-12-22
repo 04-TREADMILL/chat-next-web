@@ -55,7 +55,8 @@ st.markdown(readme_content)
 
 # ---------------------------------------------------------------------- #
 
-from streamlit_extras.buy_me_a_coffee import button
+from streamlit_extras.badges import badge
 
 st.divider()
-button(username="VGalaxies", floating=False)
+badge(type="github", name="04-TREADMILL/chat-next-web")
+badge(type="buymeacoffee", name="VGalaxies")
