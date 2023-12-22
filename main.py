@@ -38,3 +38,17 @@ elif st.session_state["authentication_status"] is None:
     st.warning("Please enter your username and password")
 
 # ---------------------------------------------------------------------- #
+
+import os
+
+# 获取当前脚本所在目录
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# 构建 README.md 的完整路径
+readme_path = os.path.join(current_directory, "README.md")
+
+# 读取 README.md 文件内容
+with open(readme_path, "r", encoding="utf-8") as file:
+    readme_content = file.read()
+
+st.markdown(readme_content)
