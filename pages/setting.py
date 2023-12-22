@@ -40,7 +40,8 @@ elif st.session_state["authentication_status"] is None:
 # ---------------------------------------------------------------------- #
 
 if st.session_state["authentication_status"]:
-    with st.expander("Reset Password"):
+    with st.expander("Settings for logged-in users"):
+        # Reset password
         try:
             if authenticator.reset_password(
                 st.session_state["username"], "Reset password"
@@ -51,7 +52,7 @@ if st.session_state["authentication_status"]:
                 st.balloons()
         except Exception as e:
             st.error(e)
-    with st.expander("Update User Details"):
+        # Update user details
         try:
             if authenticator.update_user_details(
                 st.session_state["username"], "Update user details"
@@ -63,7 +64,8 @@ if st.session_state["authentication_status"]:
         except Exception as e:
             st.error(e)
 
-with st.expander("Register User"):
+with st.expander("Settings for all users"):
+    # Register user
     try:
         if authenticator.register_user("Register user", preauthorization=False):
             with open("config.yaml", "w") as file:
@@ -72,7 +74,7 @@ with st.expander("Register User"):
             st.balloons()
     except Exception as e:
         st.error(e)
-with st.expander("Forgot Password"):
+    # Forgot password
     try:
         (
             username_of_forgotten_password,
@@ -89,7 +91,7 @@ with st.expander("Forgot Password"):
             st.error("Username not found")
     except Exception as e:
         st.error(e)
-with st.expander("Forgot Username"):
+    # Forgot username
     try:
         (
             username_of_forgotten_username,
