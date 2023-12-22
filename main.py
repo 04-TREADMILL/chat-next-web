@@ -52,3 +52,10 @@ with open(readme_path, "r", encoding="utf-8") as file:
     readme_content = file.read()
 
 st.markdown(readme_content)
+
+# ---------------------------------------------------------------------- #
+
+from streamlit_extras.buy_me_a_coffee import button
+
+st.divider()
+button(username="VGalaxies", floating=False)
