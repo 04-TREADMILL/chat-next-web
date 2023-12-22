@@ -8,12 +8,14 @@ Build comprehensive chat frontend web page powered by Streamlit 🚀
 
 ## setup
 
+After cloning this project, please proceed with the following initialization:
+
 ```bash
 pip install -r requirements.txt
 pre-commit install
 ```
 
-regenerate the requirements
+Regenerate the requirements:
 
 ```bash
 python -m pip freeze --all > requirements.txt
@@ -27,4 +29,4 @@ streamlit run main.py
 
 ## config
 
-The default username and password are both set to 'admin'.
+The default username and password are both set to `admin`.
