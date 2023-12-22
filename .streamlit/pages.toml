@@ -22,3 +22,8 @@ icon = "📜"
 path = "pages/visualization.py"
 name = "Visualization"
 icon = "📊"
+
+[[pages]]
+path = "pages/setting.py"
+name = "Setting"
+icon = "⚙️"

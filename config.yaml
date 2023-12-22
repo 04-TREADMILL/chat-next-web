@@ -1,0 +1,13 @@
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    admin:
+      email: dyc1904821183@gmail.com
+      name: VGalaxies
+      password: $2b$12$jmjclFPu0Jxe6yboyEmaS.AD3fZ8W8Y0q8E3KhmJlOjJ3A1zzTPO2
+preauthorized:
+  emails:
+  - dyc1904821183@gmail.com

@@ -24,3 +24,7 @@ python -m pip freeze --all > requirements.txt
 ```bash
 streamlit run main.py
 ```
+
+## config
+
+The default username and password are both set to 'admin'.
