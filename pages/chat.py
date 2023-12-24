@@ -1,37 +1,17 @@
 import time
-from io import StringIO
 
-import pandas as pd
 import streamlit as st
 from openai import OpenAI
 
 from st_pages import show_pages_from_config, add_page_title
+
+from global_data import MODEL_OPTIONS, SYSTEM_PROMPT
 
 # Either this or add_indentation() MUST be called on each page in your
 # app to add indentation in the sidebar
 add_page_title()
 
 show_pages_from_config()
-
-# ---------------------------------------------------------------------- #
-
-MODEL_OPTIONS = {
-    "GPT-3.5": (
-        "gpt-3.5-turbo",
-        "gpt-3.5-turbo-0613",
-        "gpt-3.5-turbo-1106",
-        "gpt-3.5-turbo-16k",
-        "gpt-3.5-turbo-instruct"
-    ),
-    "GPT-4": (
-        "gpt-4",
-        "gpt-4-32k",
-        "gpt-4-0613",
-        "gpt-4-32k-0613",
-        "gpt-4-1106-preview",
-        "gpt-4-vision-preview",
-    ),
-}
 
 # ---------------------------------------------------------------------- #
 
@@ -67,7 +47,7 @@ elif st.session_state["authentication_status"] is None:
 
 def model_changed():
     st.toast("Model changed", icon="🎉")
-    if "messages" in st.session_state and len(st.session_state["messages"]) > 1:
+    if "messages" in st.session_state and len(st.session_state["messages"]) > 2:
         st.session_state.pop("messages")
         load_main()
 
@@ -108,7 +88,13 @@ if st.session_state["authentication_status"]:
             )
             st.session_state["max_tokens"] = max_tokens
 
+
 # ---------------------------------------------------------------------- #
+
+def role_changed():
+    st.toast("Role changed", icon="🎉")
+    load_main()
+
 
 role = st.selectbox(
     label="Who do you want to talk to?",
@@ -118,6 +104,7 @@ role = st.selectbox(
         "Travel Assistant", "Translator",
         "Calculator",
     ],
+    on_change=role_changed,
 )
 st.session_state["role"] = role
 
@@ -126,10 +113,16 @@ def load_main():
     with st.spinner("Loading..."):
         if st.session_state["authentication_status"]:
             if "messages" not in st.session_state:
-                st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+                st.session_state["messages"] = [
+                    {"role": "system", "content": SYSTEM_PROMPT[st.session_state["role"]]},
+                    {"role": "assistant", "content": "How can I help you?"}
+                ]
+            else:
+                st.session_state["messages"][0]["content"] = SYSTEM_PROMPT[st.session_state["role"]]
 
             for msg in st.session_state.messages:
-                st.chat_message(msg["role"]).write(msg["content"])
+                if msg["role"] != "system":
+                    st.chat_message(msg["role"]).write(msg["content"])
 
 
 load_main()
@@ -153,6 +146,7 @@ if prompt := st.chat_input():
         # msg = response.choices[0].message.content
         msg = (f"Response from {st.session_state['role']} {st.session_state['model_name']}"
                f" with temperature {st.session_state['temperature']}"
-               f" and max tokens {st.session_state['max_tokens']}.")
+               f" and max tokens {st.session_state['max_tokens']}.\n"
+               f" The system prompt is {st.session_state.messages[0]['content']}.")
         st.session_state.messages.append({"role": "assistant", "content": msg})
         st.chat_message("assistant").write(msg)
