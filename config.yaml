@@ -8,6 +8,10 @@ credentials:
       email: dyc1904821183@gmail.com
       name: VGalaxies
       password: $2b$12$jmjclFPu0Jxe6yboyEmaS.AD3fZ8W8Y0q8E3KhmJlOjJ3A1zzTPO2
+    yoson:
+      email: yoson@lyc.com
+      name: SweeeetYogurt
+      password: $2b$12$pJE.yVAz4Koj0iiremRVhuLN1/HJ2Nx5WjIUXfNZgoZvuS60I2YO2
 preauthorized:
   emails:
   - dyc1904821183@gmail.com
