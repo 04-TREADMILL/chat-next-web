@@ -38,3 +38,68 @@ elif st.session_state["authentication_status"] is None:
     st.warning("Please enter your username and password")
 
 # ---------------------------------------------------------------------- #
+
+from global_data import PROMPT_GUIDE, PROMPT_TEMPLATE
+
+guide_tab, template_tab = st.tabs(
+    ["Prompt Engineering Guide", "Recommended Prompt Template"]
+)
+
+with guide_tab:
+    st.markdown(PROMPT_GUIDE["init"])
+
+    st.header("Introduction")
+    with st.expander("LLM Settings", expanded=False):
+        st.markdown(PROMPT_GUIDE["settings"])
+    with st.expander("Basics of Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["basics"])
+    with st.expander("Prompt Elements", expanded=False):
+        st.markdown(PROMPT_GUIDE["elements"])
+    with st.expander("General Tips for Designing Prompts", expanded=False):
+        st.markdown(PROMPT_GUIDE["tips"])
+    with st.expander("Examples of Prompts", expanded=False):
+        st.markdown(PROMPT_GUIDE["examples"])
+
+    st.header("Techniques")
+    with st.expander("Zero-shot Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["zero-shot"])
+    with st.expander("Few-shot Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["few-shot"])
+    with st.expander("Chain-of-Thought Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["CoT"])
+    with st.expander("Self-Consistency", expanded=False):
+        st.markdown(PROMPT_GUIDE["SC"])
+    with st.expander("Generate Knowledge Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["GK"])
+    with st.expander("Automatic Prompt Engineer", expanded=False):
+        st.markdown(PROMPT_GUIDE["APE"])
+    with st.expander("Active Prompt", expanded=False):
+        st.markdown(PROMPT_GUIDE["active"])
+    with st.expander("Directional Stimulus Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["DS"])
+    with st.expander("ReAct", expanded=False):
+        st.markdown(PROMPT_GUIDE["ReAct"])
+    with st.expander("Graph Prompting", expanded=False):
+        st.markdown(PROMPT_GUIDE["graph"])
+    with st.expander("Multimodal CoT", expanded=False):
+        st.markdown(PROMPT_GUIDE["multimodal"])
+
+with template_tab:
+    creative_tab, scientific_tab, journalistic_tab, dramatic_tab, artistic_tab = st.tabs(
+        ["Creative", "Scientific", "Journalistic", "Dramatic", "Artistic"]
+    )
+
+with creative_tab:
+    st.markdown(PROMPT_TEMPLATE["creative"])
+
+with scientific_tab:
+    st.markdown(PROMPT_TEMPLATE["scientific"])
+
+with journalistic_tab:
+    st.markdown(PROMPT_TEMPLATE["journalistic"])
+
+with dramatic_tab:
+    st.markdown(PROMPT_TEMPLATE["dramatic"])
+
+with artistic_tab:
+    st.markdown(PROMPT_TEMPLATE["artistic"])
