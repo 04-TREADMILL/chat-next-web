@@ -57,11 +57,19 @@ if st.session_state["authentication_status"]:
         model = st.radio(
             label="Model For Chat",
             options=("GPT-3.5", "GPT-4"),
-            help="Choose a model and Chat ~",
+            help="Choose a Model and Chat ~",
             horizontal=True,
             on_change=model_changed,
         )
         st.session_state["model"] = model
+
+        openai_api_key = st.text_input(
+            label="API Key",
+            key="chatbot_api_key",
+            type="password",
+            placeholder="Enter your API key here...",
+            label_visibility="collapsed",
+        )
 
         with st.expander("ADVANCED SETTINGS", expanded=False):
             temperature = st.slider(
@@ -127,7 +135,6 @@ def load_main():
 
 load_main()
 
-openai_api_key = "sk-1234567"
 if prompt := st.chat_input():
     if not openai_api_key:
         st.info("Please add OpenAI API key to your account.")
