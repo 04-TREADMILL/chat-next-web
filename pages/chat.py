@@ -136,6 +136,10 @@ def load_main():
 load_main()
 
 if prompt := st.chat_input():
+    if not st.session_state["authentication_status"]:
+        st.info("Please login first.")
+        st.stop()
+
     if not openai_api_key:
         st.info("Please add OpenAI API key to your account.")
         st.stop()
