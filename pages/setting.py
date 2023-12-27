@@ -45,6 +45,7 @@ st.info(
 )
 
 # ---------------------------------------------------------------------- #
+
 if st.session_state["authentication_status"]:
     with st.expander("Settings for logged-in users"):
         # Reset password
