@@ -1,0 +1,75 @@
+{
+  "title": {
+    "media": {
+      "url": "",
+      "caption": " <a target=\"_blank\" href=''>credits</a>",
+      "credit": ""
+    },
+    "text": {
+      "headline": "Welcome to<br>AI Timeline",
+      "text": "<p>Chat Web Next, Chat AI Future</p>"
+    }
+  },
+  "events": [
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/1956.jpg", "caption": "AI Birth"},
+      "start_date": {"year": "1956"},
+      "text": {"headline": "The Convening of the Dartmouth Conference", "text": "<p>Artificial intelligence was officially declared born at the Dartmouth Conference as an independent discipline.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/1957.jpg", "caption": "First AI Lab"},
+      "start_date": {"year": "1957"},
+      "text": {"headline": "Establishment of the World's First AI Laboratory", "text": "<p>Carnegie Mellon University established the world's first laboratory dedicated to the research of artificial intelligence.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/1965.jpg", "caption": "First AI Chatbot"},
+      "start_date": {"year": "1965"},
+      "text": {"headline": "Invention of the First Intelligent Chatbot, ELIZA", "text": "<p>Joseph Weizenbaum invented the first intelligent chatbot, ELIZA.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/1979.jpg", "caption": "Development of KRL"},
+      "start_date": {"year": "1979"},
+      "text": {"headline": "Introduction of the Knowledge Representation Language (KRL)", "text": "<p>The American National Standards Institute introduced a new Knowledge Representation Language (KRL) for reasoning machines.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/1981.jpg", "caption": "Expert Systems"},
+      "start_date": {"year": "1981"},
+      "text": {"headline": "Development of Expert Systems", "text": "<p>Some expert systems emerged, with the most notable being MYCIN, which could be used in medical diagnostics.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/1997.jpg", "caption": "Deep Blue vs Kasparov"},
+      "start_date": {"year": "1997"},
+      "text": {"headline": "Deep Blue's Victory over Garry Kasparov", "text": "<p>IBM's Deep Blue defeated Garry Kasparov, marking a significant breakthrough in the field of artificial intelligence.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/2006.jpg", "caption": "Google's Voice Recognition"},
+      "start_date": {"year": "2006"},
+      "text": {"headline": "Google Introduces Statistical Learning-Based Speech Recognition", "text": "<p>Google announced the release of statistical learning-based speech recognition technology, widely applied in voice assistants and smart homes.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/2011.jpg", "caption": "IBM Watson's Victory"},
+      "start_date": {"year": "2011"},
+      "text": {"headline": "Watson's Triumph on the 'Jeopardy!' Show", "text": "<p>In the television show 'Jeopardy!', IBM's computer Watson defeated two former champions, showcasing its understanding of natural language and knowledge.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/2016.jpg", "caption": "AlphaGo's Victory"},
+      "start_date": {"year": "2016"},
+      "text": {"headline": "AlphaGo's Triumph over Go Champion Lee Sedol", "text": "<p>AlphaGo defeated the Go champion Lee Sedol, demonstrating the potential of applying reinforcement learning techniques to artificial intelligence.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/2018.jpg", "caption": "AlphaZero"},
+      "start_date": {"year": "2018"},
+      "text": {"headline": "Introduction of AlphaZero", "text": "<p>DeepMind released AlphaZero, a robot capable of learning multiple board games without the need for human knowledge.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/GPT.jpg", "caption": "GPT-3 Release"},
+      "start_date": {"year": "2020"},
+      "text": {"headline": "Introduction of GPT-3", "text": "<p>OpenAI released GPT-3, an extraordinary language model capable of generating articles indistinguishable from those written by humans.</p>"}
+    },
+    {
+      "media": {"url": "https://starry-pictures.oss-cn-beijing.aliyuncs.com/GPT.jpg", "caption": "GPT-4 Release Announcement"},
+      "start_date": {"year": "2023"},
+      "text": {"headline": "GPT-4 Release Announcement", "text": "<p>In 2023, OpenAI officially releases GPT-4, the latest iteration of their powerful language model series. GPT-4 builds upon the success of its predecessors, showcasing even more advanced language understanding and generation capabilities.</p>"}
+    }
+  ]
+}
