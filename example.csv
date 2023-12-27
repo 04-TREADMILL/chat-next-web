@@ -1,0 +1,30 @@
+Name,Age,City,Occupation,Salary,Marital Status
+John,25,New York,Software Engineer,80000,Single
+Jane,30,San Francisco,Marketing Professional,75000,Married
+Bob,28,Los Angeles,Designer,70000,Single
+Alice,22,Chicago,Student,,Single
+David,35,Miami,Sales Representative,90000,Married
+Emily,27,Seattle,Data Analyst,82000,Single
+Michael,32,Austin,Doctor,120000,Married
+Samantha,29,Dallas,Educator,65000,Single
+Brian,26,Denver,Engineer,78000,Single
+Olivia,31,Portland,Journalist,70000,Married
+Chris,33,Boston,Entrepreneur,100000,Single
+Ashley,24,Phoenix,Accountant,75000,Single
+Daniel,28,San Diego,Legal Counsel,95000,Married
+Ella,23,Philadelphia,Nurse,60000,Single
+Justin,34,Detroit,Architect,85000,Married
+Sophia,26,Minneapolis,Artist,,Single
+Brandon,30,Atlanta,Marketing Professional,72000,Married
+Hannah,29,Houston,HR Specialist,68000,Married
+Alex,27,Charlotte,IT Support,75000,Single
+Lily,31,Raleigh,Researcher,82000,Married
+Matthew,25,Sacramento,Consultant,78000,Single
+Ava,28,Orlando,Management Consultant,90000,Single
+Caleb,32,Tampa,Investment Banker,110000,Married
+Grace,33,St. Louis,Professor,95000,Married
+Logan,26,Kansas City,Athlete,85000,Single
+Mia,30,Cleveland,Medical Researcher,88000,Single
+Ethan,29,Las Vegas,Pilot,95000,Married
+Chloe,24,Salt Lake City,Designer,72000,Single
+Zachary,31,San Antonio,Electrical Engineer,85000,Married

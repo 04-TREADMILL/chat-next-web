@@ -39,6 +39,12 @@ elif st.session_state["authentication_status"] is None:
 
 # ---------------------------------------------------------------------- #
 
+st.info(
+    "This page serves as the personal account center, offering a series of settings for both logged-in and logged-out users.",
+    icon="ℹ️",
+)
+
+# ---------------------------------------------------------------------- #
 if st.session_state["authentication_status"]:
     with st.expander("Settings for logged-in users"):
         # Reset password
