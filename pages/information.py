@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import openai
 
@@ -65,11 +67,14 @@ import random
 from http import HTTPStatus
 import dashscope
 
+# 设置环境变量
+dashscope.api_key = "sk-99f8b6523df14ad28e5178bd0bbf8401"
+
 
 def call_with_messages():
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "请列出最新的五条AI资讯, 只需要列出序号，内容，不需要其他内容"},
+        {"role": "user", "content": "请列出最新的五条AI资讯, 只需要列出序号，内容，不需要其他内容!"},
     ]
     response = dashscope.Generation.call(
         dashscope.Generation.Models.qwen_turbo,
@@ -83,7 +88,6 @@ def call_with_messages():
 
 
 # Streamlit 应用
-st.title("最新资讯")
 ai_news = call_with_messages()
 
 # 展示生成的 AI 资讯
