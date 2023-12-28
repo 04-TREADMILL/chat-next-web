@@ -71,18 +71,8 @@ with guide_tab:
         st.markdown(PROMPT_GUIDE["SC"])
     with st.expander("Generate Knowledge Prompting", expanded=False):
         st.markdown(PROMPT_GUIDE["GK"])
-    with st.expander("Automatic Prompt Engineer", expanded=False):
-        st.markdown(PROMPT_GUIDE["APE"])
-    with st.expander("Active Prompt", expanded=False):
-        st.markdown(PROMPT_GUIDE["active"])
-    with st.expander("Directional Stimulus Prompting", expanded=False):
-        st.markdown(PROMPT_GUIDE["DS"])
-    with st.expander("ReAct", expanded=False):
-        st.markdown(PROMPT_GUIDE["ReAct"])
-    with st.expander("Graph Prompting", expanded=False):
-        st.markdown(PROMPT_GUIDE["graph"])
-    with st.expander("Multimodal CoT", expanded=False):
-        st.markdown(PROMPT_GUIDE["multimodal"])
+    with st.expander("More Techniques", expanded=False):
+        st.markdown(PROMPT_GUIDE["more"])
 
 with template_tab:
     creative_tab, scientific_tab, journalistic_tab, dramatic_tab, artistic_tab = st.tabs(
