@@ -91,6 +91,7 @@ SQLAlchemy==2.0.23
 st-annotated-text==4.0.1
 st-pages==0.4.5
 streamlit==1.29.0
+streamlit-ace==0.1.1
 streamlit-authenticator==0.2.3
 streamlit-camera-input-live==0.2.0
 streamlit-card==1.0.0
