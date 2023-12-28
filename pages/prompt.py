@@ -44,41 +44,41 @@ from streamlit_ace import st_ace
 from global_data import PROMPT_GUIDE, PROMPT_TEMPLATE
 
 guide_tab, template_tab, creation_tab = st.tabs(
-    ["Prompt Engineering Guide", "Recommended Prompt Template", "Create Your Own Prompt Template"]
+    ["🚀 Prompt Engineering Guide", "🎈 Recommended Prompt Template", "🎉 Create Your Own Prompt Template"]
 )
 
 with guide_tab:
     st.markdown(PROMPT_GUIDE["init"])
 
-    st.header("Introduction")
-    with st.expander("LLM Settings", expanded=False):
+    st.header("📚 Introduction")
+    with st.expander("🔑 LLM Settings", expanded=False):
         st.markdown(PROMPT_GUIDE["settings"])
-    with st.expander("Basics of Prompting", expanded=False):
+    with st.expander("🔑 Basics of Prompting", expanded=False):
         st.markdown(PROMPT_GUIDE["basics"])
-    with st.expander("Prompt Elements", expanded=False):
+    with st.expander("🔑 Prompt Elements", expanded=False):
         st.markdown(PROMPT_GUIDE["elements"])
-    with st.expander("General Tips for Designing Prompts", expanded=False):
+    with st.expander("🔑 General Tips for Designing Prompts", expanded=False):
         st.markdown(PROMPT_GUIDE["tips"])
-    with st.expander("Examples of Prompts", expanded=False):
+    with st.expander("🔑 Examples of Prompts", expanded=False):
         st.markdown(PROMPT_GUIDE["examples"])
 
-    st.header("Techniques")
-    with st.expander("Zero-shot Prompting", expanded=False):
+    st.header("💎 Techniques")
+    with st.expander("✏️ Zero-shot Prompting", expanded=False):
         st.markdown(PROMPT_GUIDE["zero-shot"])
-    with st.expander("Few-shot Prompting", expanded=False):
+    with st.expander("✏️ Few-shot Prompting", expanded=False):
         st.markdown(PROMPT_GUIDE["few-shot"])
-    with st.expander("Chain-of-Thought Prompting", expanded=False):
+    with st.expander("✏️ Chain-of-Thought Prompting", expanded=False):
         st.markdown(PROMPT_GUIDE["CoT"])
-    with st.expander("Self-Consistency", expanded=False):
+    with st.expander("✏️ Self-Consistency", expanded=False):
         st.markdown(PROMPT_GUIDE["SC"])
-    with st.expander("Generate Knowledge Prompting", expanded=False):
+    with st.expander("✏️ Generate Knowledge Prompting", expanded=False):
         st.markdown(PROMPT_GUIDE["GK"])
-    with st.expander("More Techniques", expanded=False):
+    with st.expander("✏️ More Techniques", expanded=False):
         st.markdown(PROMPT_GUIDE["more"])
 
 with template_tab:
     creative_tab, scientific_tab, journalistic_tab, dramatic_tab, artistic_tab = st.tabs(
-        ["Creative", "Scientific", "Journalistic", "Dramatic", "Artistic"]
+        ["✏️ Creative", "🔬 Scientific", "🗞️ Journalistic", "🎭 Dramatic", "🎨 Artistic"]
     )
 
 with creative_tab:
@@ -97,6 +97,7 @@ with artistic_tab:
     st.markdown(PROMPT_TEMPLATE["artistic"])
 
 with creation_tab:
+    st.markdown("🖋️ Write Down Your Ideas and 🍎 Save to Your Account!")
     content = st_ace()
     st.divider()
     st.write(content)
