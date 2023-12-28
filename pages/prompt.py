@@ -39,10 +39,12 @@ elif st.session_state["authentication_status"] is None:
 
 # ---------------------------------------------------------------------- #
 
+from streamlit_ace import st_ace
+
 from global_data import PROMPT_GUIDE, PROMPT_TEMPLATE
 
-guide_tab, template_tab = st.tabs(
-    ["Prompt Engineering Guide", "Recommended Prompt Template"]
+guide_tab, template_tab, creation_tab = st.tabs(
+    ["Prompt Engineering Guide", "Recommended Prompt Template", "Create Your Own Prompt Template"]
 )
 
 with guide_tab:
@@ -93,3 +95,10 @@ with dramatic_tab:
 
 with artistic_tab:
     st.markdown(PROMPT_TEMPLATE["artistic"])
+
+with creation_tab:
+    content = st_ace()
+    st.divider()
+    st.write(content)
+    if st.button("SAVE", type="primary"):
+        st.snow()
