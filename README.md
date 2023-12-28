@@ -21,6 +21,8 @@ Regenerate the requirements:
 python -m pip freeze --all > requirements.txt
 ```
 
+> TODO: clean unused requirements
+
 ## run
 
 ```bash

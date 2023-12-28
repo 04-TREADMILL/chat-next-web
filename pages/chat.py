@@ -1,8 +1,6 @@
 import time
 
 import streamlit as st
-from openai import OpenAI
-
 from st_pages import show_pages_from_config, add_page_title
 
 from global_data import MODEL_OPTIONS, SYSTEM_PROMPT
@@ -42,8 +40,15 @@ elif st.session_state["authentication_status"] is False:
 elif st.session_state["authentication_status"] is None:
     st.warning("Please enter your username and password")
 
+# ---------------------------------------------------------------------- #
+
+st.info(
+    "This page allows configuration of parameters for conversations with LLM and selecting a predefined role for interacting with LLM.",
+    icon="ℹ️",
+)
 
 # ---------------------------------------------------------------------- #
+
 
 def model_changed():
     st.toast("Model changed", icon="🎉")
@@ -99,6 +104,7 @@ if st.session_state["authentication_status"]:
 
 # ---------------------------------------------------------------------- #
 
+
 def role_changed():
     st.toast("Role changed", icon="🎉")
     load_main()
@@ -107,9 +113,12 @@ def role_changed():
 role = st.selectbox(
     label="Who do you want to talk to?",
     options=[
-        "AI Assistant", "Research Assistant",
-        "Soul Accompany", "Business Assistant",
-        "Travel Assistant", "Translator",
+        "AI Assistant",
+        "Research Assistant",
+        "Soul Accompany",
+        "Business Assistant",
+        "Travel Assistant",
+        "Translator",
         "Calculator",
     ],
     on_change=role_changed,
@@ -122,11 +131,16 @@ def load_main():
         if st.session_state["authentication_status"]:
             if "messages" not in st.session_state:
                 st.session_state["messages"] = [
-                    {"role": "system", "content": SYSTEM_PROMPT[st.session_state["role"]]},
-                    {"role": "assistant", "content": "How can I help you?"}
+                    {
+                        "role": "system",
+                        "content": SYSTEM_PROMPT[st.session_state["role"]],
+                    },
+                    {"role": "assistant", "content": "How can I help you?"},
                 ]
             else:
-                st.session_state["messages"][0]["content"] = SYSTEM_PROMPT[st.session_state["role"]]
+                st.session_state["messages"][0]["content"] = SYSTEM_PROMPT[
+                    st.session_state["role"]
+                ]
 
             for msg in st.session_state.messages:
                 if msg["role"] != "system":
@@ -155,9 +169,11 @@ if prompt := st.chat_input():
         #     temperature=temperature,
         # )
         # msg = response.choices[0].message.content
-        msg = (f"Response from {st.session_state['role']} {st.session_state['model_name']}"
-               f" with temperature {st.session_state['temperature']}"
-               f" and max tokens {st.session_state['max_tokens']}.\n"
-               f" The system prompt is {st.session_state.messages[0]['content']}.")
+        msg = (
+            f"Response from {st.session_state['role']} {st.session_state['model_name']}"
+            f" with temperature {st.session_state['temperature']}"
+            f" and max tokens {st.session_state['max_tokens']}.\n"
+            f" The system prompt is {st.session_state.messages[0]['content']}."
+        )
         st.session_state.messages.append({"role": "assistant", "content": msg})
         st.chat_message("assistant").write(msg)

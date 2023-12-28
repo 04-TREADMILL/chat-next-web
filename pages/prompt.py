@@ -39,13 +39,27 @@ elif st.session_state["authentication_status"] is None:
 
 # ---------------------------------------------------------------------- #
 
+st.info(
+    "This page is designed to showcase the prompt engineering guide with recommended prompt template, and allows users to create their own prompt templates.",
+    icon="ℹ️",
+)
+
+# ---------------------------------------------------------------------- #
+
 from streamlit_ace import st_ace
 
 from global_data import PROMPT_GUIDE, PROMPT_TEMPLATE
 
 guide_tab, template_tab, creation_tab = st.tabs(
-    ["🚀 Prompt Engineering Guide", "🎈 Recommended Prompt Template", "🎉 Create Your Own Prompt Template"]
+    [
+        "🚀 Prompt Engineering Guide",
+        "🎈 Recommended Prompt Template",
+        "🎉 Create Your Own Prompt Template",
+    ]
 )
+
+if "custom_prompt" not in st.session_state:
+    st.session_state.custom_prompt = ""
 
 with guide_tab:
     st.markdown(PROMPT_GUIDE["init"])
@@ -77,8 +91,20 @@ with guide_tab:
         st.markdown(PROMPT_GUIDE["more"])
 
 with template_tab:
-    creative_tab, scientific_tab, journalistic_tab, dramatic_tab, artistic_tab = st.tabs(
-        ["✏️ Creative", "🔬 Scientific", "🗞️ Journalistic", "🎭 Dramatic", "🎨 Artistic"]
+    (
+        creative_tab,
+        scientific_tab,
+        journalistic_tab,
+        dramatic_tab,
+        artistic_tab,
+    ) = st.tabs(
+        [
+            "✏️ Creative",
+            "🔬 Scientific",
+            "🗞️ Journalistic",
+            "🎭 Dramatic",
+            "🎨 Artistic",
+        ]
     )
 
 with creative_tab:
@@ -99,7 +125,10 @@ with artistic_tab:
 with creation_tab:
     st.markdown("🖋️ Write Down Your Ideas and 🍎 Save to Your Account!")
     content = st_ace()
-    st.divider()
-    st.write(content)
-    if st.button("SAVE", type="primary"):
-        st.snow()
+    if (
+        content is not None
+        and len(content) > 0
+        and st.session_state.custom_prompt != content
+    ):
+        st.session_state.custom_prompt = content
+        st.toast("Save successfully", icon="🎉")
