@@ -34,9 +34,15 @@ if st.session_state["authentication_status"]:
         st.write(f'Welcome *{st.session_state["name"]}*')
     authenticator.logout("Logout", "sidebar", key="logout_button")
 elif st.session_state["authentication_status"] is False:
-    st.error("Username/password is incorrect")
+    with st.sidebar:
+        st.error(
+            "Username or password is incorrect, please check your username and password in *[home](/)* page."
+        )
 elif st.session_state["authentication_status"] is None:
-    st.warning("Please enter your username and password")
+    with st.sidebar:
+        st.warning(
+            "Please enter your username and password in *[home](/)* page."
+        )
 
 # ---------------------------------------------------------------------- #
 

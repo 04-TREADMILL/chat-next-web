@@ -47,6 +47,16 @@ if st.session_state["authentication_status"]:
     badge(type="github", name="04-TREADMILL/chat-next-web")
     badge(type="buymeacoffee", name="VGalaxies")
 elif st.session_state["authentication_status"] is False:
-    st.error("Username/password is incorrect")
+    with st.sidebar:
+        st.error(
+            "Username or password is incorrect, please check your username and password in *[home](/)* page."
+        )
 elif st.session_state["authentication_status"] is None:
-    st.warning("Please enter your username and password")
+    with st.sidebar:
+        st.warning(
+            "Please enter your username and password in *[home](/)* page."
+        )
+    st.info(
+        "For unregistered users, please redirect to the *[setting](/Setting)* page for registration.",
+        icon="ℹ️",
+    )
