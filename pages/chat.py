@@ -29,7 +29,7 @@ authenticator = stauth.Authenticate(
     config["preauthorized"],
 )
 
-authenticator.login("Login", "sidebar")
+# authenticator.login("Login", "sidebar")
 
 if st.session_state["authentication_status"]:
     with st.sidebar:
