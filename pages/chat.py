@@ -1,4 +1,7 @@
 import time
+import random
+from http import HTTPStatus
+import dashscope
 
 import streamlit as st
 from openai import OpenAI
@@ -156,6 +159,26 @@ def load_main():
 
 load_main()
 
+dashscope.api_key = "sk-99f8b6523df14ad28e5178bd0bbf8401"
+
+
+def fetch(msg: str) -> str:
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": msg},
+    ]
+    response = dashscope.Generation.call(
+        dashscope.Generation.Models.qwen_turbo,
+        messages=messages,
+        # set the random seed, optional, default to 1234 if not set
+        seed=random.randint(1, 10000),
+        result_format="message",  # set the result to be "message" format.
+    )
+    if response.status_code == HTTPStatus.OK:
+        return response.output.choices[0]["message"]["content"]
+    return "no response"
+
+
 if prompt := st.chat_input():
     if not st.session_state["authentication_status"]:
         st.info("Please login first.")
@@ -165,17 +188,17 @@ if prompt := st.chat_input():
         st.info("Please add OpenAI API key to your account.")
         st.stop()
 
-    client = OpenAI(api_key=openai_api_key)
+    # client = OpenAI(api_key=openai_api_key)
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     with st.spinner("Waiting for response..."):
         time.sleep(3)
-        response = client.chat.completions.create(
-            model=model,
-            messages=st.session_state.messages,
-            temperature=temperature,
-        )
-        msg = response.choices[0].message.content
+        # response = client.chat.completions.create(
+        #     model=model,
+        #     messages=st.session_state.messages,
+        #     temperature=temperature,
+        # )
+        msg = fetch(prompt)
         # msg = (
         #     f"Response from {st.session_state['role']} {st.session_state['model_name']}"
         #     f" with temperature {st.session_state['temperature']}"
