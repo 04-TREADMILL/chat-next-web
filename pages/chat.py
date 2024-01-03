@@ -1,6 +1,7 @@
 import time
 
 import streamlit as st
+from openai import OpenAI
 from st_pages import show_pages_from_config, add_page_title
 
 from global_data import MODEL_OPTIONS, SYSTEM_PROMPT
@@ -164,22 +165,22 @@ if prompt := st.chat_input():
         st.info("Please add OpenAI API key to your account.")
         st.stop()
 
-    # client = OpenAI(api_key=openai_api_key)
+    client = OpenAI(api_key=openai_api_key)
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     with st.spinner("Waiting for response..."):
         time.sleep(3)
-        # response = client.chat.completions.create(
-        #     model=model,
-        #     messages=st.session_state.messages,
-        #     temperature=temperature,
-        # )
-        # msg = response.choices[0].message.content
-        msg = (
-            f"Response from {st.session_state['role']} {st.session_state['model_name']}"
-            f" with temperature {st.session_state['temperature']}"
-            f" and max tokens {st.session_state['max_tokens']}.\n"
-            f" The system prompt is {st.session_state.messages[0]['content']}."
+        response = client.chat.completions.create(
+            model=model,
+            messages=st.session_state.messages,
+            temperature=temperature,
         )
+        msg = response.choices[0].message.content
+        # msg = (
+        #     f"Response from {st.session_state['role']} {st.session_state['model_name']}"
+        #     f" with temperature {st.session_state['temperature']}"
+        #     f" and max tokens {st.session_state['max_tokens']}.\n"
+        #     f" The system prompt is {st.session_state.messages[0]['content']}."
+        # )
         st.session_state.messages.append({"role": "assistant", "content": msg})
         st.chat_message("assistant").write(msg)
