@@ -1,3 +1,5 @@
+> This is a typical **NEGATIVE** case study of the Human-Computer Interaction System course at NJU. Please approach with caution when studying.
+
 # Chat Next Web
 
 Build comprehensive chat frontend web page powered by Streamlit 🚀
